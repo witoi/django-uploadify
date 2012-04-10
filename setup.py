@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-uploadify',
-    version='0.1',
+    version='0.1.1',
     description='A Django re-usable app to integrate Uploadify.',
     author='tstone',
     author_email='tstone',
