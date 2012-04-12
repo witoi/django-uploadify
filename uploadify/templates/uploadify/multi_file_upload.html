@@ -1,33 +1,8 @@
 {% load i18n %}
-<script type="text/javascript" src="{{ uploadify_path }}swfobject.js"></script>
-<script type="text/javascript" src="{{ uploadify_path }}jquery.uploadify.js"></script>
+
 <div id="uploadify" class="multi-file-upload"><input id="fileInput" name="fileInput" type="file" /></div>
-<script type="text/javascript">
-// <![CDATA[
-$(document).ready(function() {
-$('#fileInput').uploadify({
-  'buttonText': '{% trans "Select files" %}',
-  'uploader'  : '{{ uploadify_path }}uploadify.swf',
-  'script'    : '{% url uploadify_upload %}',
-  'cancelImg' : {{ cancelImg }}'{{ uploadify_path }}cancel.png',
-  'auto'      : true,
-  'folder'    : '{{ upload_path }}',
-  'multi'     : true,
-  'onAllComplete' : {% if callback %}{{ callback }}{% else %}allComplete{% endif %},
-  {% if extra %}'scriptData': {{ extra|safe }},{% endif %}
-});
-});
-{% if not callback %}
-function allComplete(event, data) {
-    $('#uploadify').load('{{ upload_complete_url }}', {
-        'filesUploaded': data.filesUploaded,
-        'errorCount': data.errors,
-        'allBytesLoaded': data.allBytesLoaded,
-        'speed': data.speed,
-    });
-    // Raise custom event
-    $('#uploadify').trigger('allUploadsComplete', data);
-}
+
+{% if inline %}
+  {% include 'uploadify/scripts.html' %}
 {% endif %}
-// ]]>
-</script>
+
