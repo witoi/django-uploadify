@@ -11,6 +11,7 @@ setup(
     package_data={
         'uploadify': [
 	    'templates/uploadify/multi_file_upload.html'
+	    'templates/uploadify/scripts.html'
 	]
     },
     include_package_data=True,
