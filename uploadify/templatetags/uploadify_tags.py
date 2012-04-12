@@ -1,5 +1,8 @@
 from django import template
+from django.template.loader import render_to_string
+
 from uploadify import settings
+
 
 register = template.Library()
 
@@ -7,7 +10,7 @@ register = template.Library()
 #   multi_file_upload
 # -----------------------------------------------------------------------------
 @register.inclusion_tag('uploadify/multi_file_upload.html', takes_context=True)
-def multi_file_upload(context, upload_complete_url, extra=None, callback=None, inline=True):
+def multi_file_upload(context, upload_complete_url, extra=None, callback=None, inline=1):
     """
     Displays a Flash-based interface for uploading multiple files.
     When all files have been uploaded, the given URL is POSTed to.  The returned
