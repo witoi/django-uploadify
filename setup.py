@@ -10,7 +10,7 @@ setup(
     packages=find_packages(),
     package_data={
         'uploadify': [
-	    'templates/uploadify/multi_file_upload.html'
+	    'templates/uploadify/multi_file_upload.html',
 	    'templates/uploadify/scripts.html'
 	]
     },
