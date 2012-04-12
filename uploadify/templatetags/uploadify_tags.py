@@ -31,6 +31,6 @@ def multi_file_upload(context, upload_complete_url, extra=None, callback=None, i
     }
 
     if not inline:
-        context.update({'multi_file_upload_scripts': render_to_string('uploadify/scripts.html', template_context)})
+        context['multi_file_upload_scripts'] = render_to_string('uploadify/scripts.html', template_context)
 
     return template_context
